@@ -1,0 +1,122 @@
+<div class="col-lg mt-4">
+	<h2>CRUD Angular dengan Rest API</h2>
+	<p class="text-right"><button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Tambah</button></p>
+</div>
+<div class="row">
+	<div class="col-lg">		
+		<table class="table table-hover table-responsive-lg">
+		  <thead>
+		    <tr>
+		      <th scope="col">ID</th>
+		      <th scope="col">Nama</th>
+		      <th scope="col">Alamat</th>
+		      <th scope="col">Gender</th>
+		      <th scope="col">Gaji</th>
+		      <th scope="col">Aksi</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr *ngFor="let row of dataSource">
+		      <td>{{row.id}}</td>
+		      <td>{{row.nama}}</td>
+		      <td>{{row.alamat}}</td>
+		      <td>{{row.gender}}</td>
+		      <td>{{row.gaji}}</td>
+		      <td>
+		      	<button class="btn btn-warning" data-toggle="modal" data-target="#editModal" (click)="editData(row.id)">Edit</button> | 
+		      	<button class="btn btn-danger" (click)="hapusData(row.id)">Hapus</button>
+		      </td>
+		  </tbody>
+		</table>
+	</div>
+</div>
+
+<!-- Modal Tambah Data-->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+		  <div class="form-group">
+		    <label for="">ID</label>
+		    <input type="text" class="form-control" name="id" [(ngModel)]="id">
+		  </div>
+		  <div class="form-group">
+		    <label for="">Nama</label>
+		    <input type="text" class="form-control" name="nama" [(ngModel)]="nama">
+		  </div>
+		  <div class="form-group">
+		    <label for="">Alamat</label>
+		    <textarea class="form-control" name="alamat" [(ngModel)]="alamat"></textarea>
+		  </div>
+		  <div class="form-group">
+		    <label for="">Gender</label>
+		    <select class="form-control" name="gender" [(ngModel)]="gender">
+		    	<option value="L">Laki-laki</option>
+		    	<option value="P">Perempuan</option>
+		    </select>
+		  </div>
+		  <div class="form-group">
+		    <label for="">Gaji</label>
+		    <input type="number" class="form-control" name="gaji" [(ngModel)]="gaji">
+		  </div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="simpanData()" data-dismiss="modal">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Edit Data-->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+		  <div class="form-group">
+		    <label for="">ID</label>
+		    <input type="text" class="form-control" name="id" [(ngModel)]="idEdit" readonly="readonly">
+		  </div>
+		  <div class="form-group">
+		    <label for="">Nama</label>
+		    <input type="text" class="form-control" name="nama" [(ngModel)]="namaEdit">
+		  </div>
+		  <div class="form-group">
+		    <label for="">Alamat</label>
+		    <textarea class="form-control" name="alamat" [(ngModel)]="alamatEdit"></textarea>
+		  </div>
+		  <div class="form-group">
+		    <label for="">Gender</label>
+		    <select class="form-control" name="gender" [(ngModel)]="genderEdit">
+		    	<option value="L">Laki-laki</option>
+		    	<option value="P">Perempuan</option>
+		    </select>
+		  </div>
+		  <div class="form-group">
+		    <label for="">Gaji</label>
+		    <input type="number" class="form-control" name="gaji" [(ngModel)]="gajiEdit">
+		  </div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="ubahData()" data-dismiss="modal">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
