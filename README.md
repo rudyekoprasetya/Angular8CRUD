@@ -17,4 +17,4 @@ Run `ng server --o` untuk menjalankan web di localhost.
 
 ## Online Demo
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Untuk online demo bisa di akses di [Github PAGES](https://rudyekoprasetya.github.io/Angular8CRUD/crud)
