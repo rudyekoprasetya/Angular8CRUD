@@ -10,7 +10,8 @@ export class ApiService {
   constructor(private http:HttpClient) { };
 
   get() {
-  	 return this.http.get("http://localhost/rest-api/tampil_data.php");
+
+  	 return this.http.get("http://demo.cv-nmm.com/rest-api/tampil_data.php");
   }
 
   save(id,nama,alamat,gender,gaji) {
@@ -21,11 +22,11 @@ export class ApiService {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 	};
 
- 	return this.http.post("http://localhost/rest-api/tambah_data.php", body, options);
+ 	return this.http.post("http://demo.cv-nmm.com/rest-api/tambah_data.php", body, options);
   }
 
   getid(id) {
-  	return this.http.get("http://localhost/rest-api/tampil_data.php?id="+id);
+  	return this.http.get("http://demo.cv-nmm.com/rest-api/tampil_data.php?id="+id);
   }
 
   update(id,nama,alamat,gender,gaji) {
@@ -36,10 +37,10 @@ export class ApiService {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 	};
 
- 	return this.http.post("http://localhost/rest-api/ubah_data.php", body, options);
+ 	return this.http.post("http://demo.cv-nmm.com/rest-api/ubah_data.php", body, options);
   }
 
   delete(id) {
-  	return this.http.get("http://localhost/rest-api/hapus_data.php?id="+id);
+  	return this.http.get("http://demo.cv-nmm.com/rest-api/hapus_data.php?id="+id);
   }
 }
